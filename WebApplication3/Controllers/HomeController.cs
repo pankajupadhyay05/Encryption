@@ -50,11 +50,6 @@ namespace WebApplication3.Controllers
             using CryptoStream csDecrypt = new CryptoStream(msDecrypt, aesAlg.CreateDecryptor(), CryptoStreamMode.Read);
             using StreamReader srDecrypt = new StreamReader(csDecrypt);
 
-            //return srDecrypt.ReadToEnd();
-            // Retrieve the encrypted cookie value
-            //string encryptedValue = Request.Cookies["MyEncryptedCookie"];
-
-            // Decrypt the cookie value
             string decryptedValue = srDecrypt.ReadToEnd();
 
             return Content("Decrypted cookie value: " + decryptedValue);
